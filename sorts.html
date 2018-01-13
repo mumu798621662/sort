@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr = [12,25,1,60,48,97,3,6,100];
+
+    ////////////////////////////////////插入排序////////////////////////////////////
+    let Sort4 = function(array){
+        let i, j, temp, key;
+        for(i = 1;i < array.length; i++){
+            temp = j = i;
+            key = array[j];
+
+            while(--j > -1){
+
+                if(array[j] >= key){
+
+                    array[j+1] = array[j];
+                }else{
+                    break;
+                }
+            }
+            array[j+1] = key;
+        }
+        return array;
+    }
+    console.log(Sort4(arr));
+
+    ////////////////////选择排序///////////////////////////////////////
+    let Sort5 = function (arr) {
+        let i, j,temp
+        for (i = 0; i <arr.length - 1; i++) {
+            let indexmin = i;
+
+            for (j = i + 1; j <arr.length; j++) {
+                if (arr[j] < arr[indexmin]) {
+                    indexmin = j;
+                }
+            }
+            temp=arr[i];
+            arr[i]=arr[indexmin];
+            arr[indexmin]==temp;
+        }
+        return arr
+    }
+    console.log(Sort5(arr))
+
+    ///////////////////////////////////////////冒泡排序/////////////////////////////
+  let Sort1= function(array){
+        var i,j, d;
+        for(i=0; i<array.length; i++){
+            for(j=0; j<array.length; j++){
+                if(array[i] < array[j]){
+                    d = array[j];
+                    array[j] = array[i];
+                    array[i] = d;
+                }
+            }
+        }
+        return array;
+    }
+    console.log(Sort1(arr));
+
+  ////////////////////////////////////////sort方法排序////////////////////////////
+    let Sort2 = function(array) {
+        return array.sort(function(a, b){
+            return a - b;
+        });
+    }
+    console.log(Sort2(arr))
+
+    //////////////////////////////////快速排序////////////////////////////////////
+        let Sort3 = function (arr) {
+          if (arr.length <= 1){
+              return arr;
+          }
+          let index = Math.floor(arr.length / 2);
+          let proift = arr.splice(index, 1)[0]; //找基准，并把基准从原数组删除
+
+          let left = [];
+          let right = [];
+          for (let i = 0; i < arr.length; i++) {
+              if (arr[i] <= proift) {
+                  left.push(arr[i]);
+              } else {
+                  right.push(arr[i]);
+              }
+          }
+          return Sort3(left).concat([proift], Sort3(right));
+      }
+      console.log((Sort3(arr)))
+
+      console.log(arr)
+
+</script>
